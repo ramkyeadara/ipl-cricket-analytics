@@ -25,6 +25,9 @@ seasons = info[info["key"] == "season"][["match_id", "value"]].rename(columns={"
 
 # ---- Merge season into deliveries ----
 deliveries = deliveries.merge(seasons, on="match_id", how="left")
+deliveries = deliveries.merge(seasons, on="match_id", how="left")
+print("Columns after merge:", list(deliveries.columns))
+print("Season sample:", deliveries["season"].head(3).tolist())
 
 # ---- Filter to 2021 onwards ----
 deliveries = deliveries[deliveries["season"].isin(["2021","2022","2023","2024","2025","2026"])]

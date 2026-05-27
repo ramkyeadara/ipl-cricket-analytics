@@ -94,6 +94,11 @@ for col in ["batting_team", "bowling_team"]:
     deliveries[col] = deliveries[col].replace(team_map)
 print("Team names standardised")
 
+# ---- Apply same fixes to info table ----
+info["value"] = info["value"].replace(venue_map)
+info["value"] = info["value"].replace(team_map)
+print("Info table venue and team names standardised")
+
 # ---- STEP 3: Fix season formats ----
 season_map = {
     "2007/08" : "2008",
